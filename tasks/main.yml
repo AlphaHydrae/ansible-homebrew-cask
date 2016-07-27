@@ -1,0 +1,14 @@
+---
+
+- name: Tap caskroom/cask
+  homebrew_tap: name=caskroom/cask state=present
+  become: true
+  become_user: "{{ homebrew_user }}"
+  tags:
+    - homebrew
+    - homebrew-cask
+  when: ansible_pkg_mgr == 'homebrew'
+
+# Other package managers
+- fail: msg="{{ ansible_pkg_mgr }} is not a supported package manager (Homebrew is supported)"
+  when: ansible_pkg_mgr != 'homebrew'
