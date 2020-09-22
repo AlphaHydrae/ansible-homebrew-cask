@@ -14,5 +14,4 @@ galaxy_info:
     - cask
     - homebrewcask
 
-dependencies:
-  - role: AlphaHydrae.homebrew
+dependencies: []
